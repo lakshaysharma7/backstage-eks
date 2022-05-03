@@ -45,5 +45,6 @@ phases:
       - echo Push the latest image to cluster
       - kubectl apply -f ./deployment.yaml
       - kubectl apply -f ./service.yaml
+      - kubectl rollout -h
       - kubectl rollout restart deployment/backstage-deployment
       - kubectl get svc --all-namespaces
