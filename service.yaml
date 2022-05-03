@@ -2,15 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app.kubernetes.io/name: cicd-demo
-    app.kubernetes.io/instance: cicd-demo-instance
+    app.kubernetes.io/name: backstage-service
+    app.kubernetes.io/instance: backstage-instance
     app.kubernetes.io/version: "1.0.0"
     app.kubernetes.io/component: backend
     app.kubernetes.io/managed-by: kubectl
-  name: cicd-demo
+  name: backstage-service
 spec:
   selector:
-    app: cicd-demo
+    app: backstage-demo
   type: NodePort
   ports:
    -  protocol: TCP
