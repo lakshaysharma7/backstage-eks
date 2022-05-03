@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/name: cicd-demo
-    app.kubernetes.io/instance: cicd-demo-instance
+    app.kubernetes.io/name: backstage-deployment
+    app.kubernetes.io/instance: backstage-instance
     app.kubernetes.io/version: '1.0.0'
     app.kubernetes.io/managed-by: kubectl
-  name: cicd-demo-deployment
+  name: backstage-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cicd-demo
+      app: backstage-demo
   template:
     metadata:
       labels:
-        app: cicd-demo
+        app: backstage-demo
     spec:
       containers:
         - image: 417618740333.dkr.ecr.us-east-2.amazonaws.com/dev-backstage-417618740333-ecr-repository:latest
           imagePullPolicy: Always
-          name: cicd-demo
+          name: backstage-demo
           ports:
             - containerPort: 3000
