@@ -20,6 +20,9 @@ spec:
       containers:
         - image: 417618740333.dkr.ecr.us-east-2.amazonaws.com/dev-backstage-417618740333-ecr-repository:latest
           imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: postgres-secrets
           name: backstage-demo
           ports:
             - containerPort: 3000
