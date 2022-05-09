@@ -14,7 +14,7 @@ phases:
       - echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
       - echo 'Check kubectl version'
       - kubectl version --short --client
-      - sudo yum install nodejs npm --enablerepo=epel
+      - sudo yum -y install nodejs npm --enablerepo=epel
       - sudo npm install --global yarn
       - yarn install --frozen-lockfile
       - yarn tsc
