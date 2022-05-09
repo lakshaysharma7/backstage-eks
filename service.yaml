@@ -11,7 +11,7 @@ metadata:
 spec:
   selector:
     app: backstage-demo
-  type: NodePort
+  type: LoadBalancer
   ports:
    -  protocol: TCP
       port: 80
