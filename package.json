@@ -1,28 +1,54 @@
 {
-  "name": "codedeploydemo",
+  "name": "root",
   "version": "1.0.0",
-  "description": "To show how CodeDeploy Works",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
+  "private": true,
+  "engines": {
+    "node": "14 || 16"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
+    "start": "yarn workspace app start",
+    "start-backend": "yarn workspace backend start",
+    "build": "backstage-cli repo build --all",
+    "build-image": "yarn workspace backend build-image",
+    "tsc": "tsc",
+    "tsc:full": "tsc --skipLibCheck false --incremental false",
+    "clean": "backstage-cli clean && lerna run clean",
+    "diff": "lerna run diff --",
+    "test": "backstage-cli test",
+    "test:all": "lerna run test -- --coverage",
+    "lint": "backstage-cli repo lint --since origin/master",
+    "lint:all": "backstage-cli repo lint",
+    "prettier:check": "prettier --check .",
+    "create-plugin": "backstage-cli create-plugin --scope internal",
+    "remove-plugin": "backstage-cli remove-plugin"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/eks-cicd-demo"
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "plugins/*"
+    ]
   },
-  "keywords": [
-    "node"
-  ],
-  "author": "Rakesh C",
-  "license": "ISC",
-  "dependencies": {
-    "config": "^3.3.3",
-    "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "request": "^2.88.2",
-    "sequelize": "^6.5.0"
+  "devDependencies": {
+    "@backstage/cli": "^0.17.0",
+    "@spotify/prettier-config": "^12.0.0",
+    "concurrently": "^6.0.0",
+    "lerna": "^4.0.0",
+    "prettier": "^2.3.2",
+    "typescript": "~4.5.4"
+  },
+  "resolutions": {
+    "@types/react": "^17",
+    "@types/react-dom": "^17"
+  },
+  "prettier": "@spotify/prettier-config",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }

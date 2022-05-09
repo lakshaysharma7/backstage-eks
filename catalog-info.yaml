@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-demo
+  description: An example of a Backstage application.
+ 
+     # catalog-info.yaml (backstage)
+  annotations:
+    backstage.io/kubernetes-id: "petstore"
+    backstage.io/kubernetes-label-selector: 'app'
+
+spec:
+  type: website
+  owner: john@example.com
+  lifecycle: experimental
+
+
+  requirements:
+    - key: "node.kubernetes.io/instance-type"
+      operator: In
+      values: ["m5.large"]

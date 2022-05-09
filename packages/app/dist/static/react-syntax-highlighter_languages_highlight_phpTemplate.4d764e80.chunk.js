@@ -1,0 +1,3 @@
+(()=>{(self.webpackChunkapp=self.webpackChunkapp||[]).push([[6549],{31994:function(e){function l(n){return{name:"PHP template",subLanguage:"xml",contains:[{begin:/<\?(php|=)?/,end:/\?>/,subLanguage:"php",contains:[{begin:"/\\*",end:"\\*/",skip:!0},{begin:'b"',end:'"',skip:!0},{begin:"b'",end:"'",skip:!0},n.inherit(n.APOS_STRING_MODE,{illegal:null,className:null,contains:null,skip:!0}),n.inherit(n.QUOTE_STRING_MODE,{illegal:null,className:null,contains:null,skip:!0})]}]}}e.exports=l}}]);})();
+
+//# sourceMappingURL=react-syntax-highlighter_languages_highlight_phpTemplate.4d764e80.chunk.js.map
